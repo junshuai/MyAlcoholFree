@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div id="columns">
+    <div id="side">
+      <ul>
+        <li><a href="#">All Drinks</a></li>
+        <li><a href="#">Alcohol-Free Wines</a></li>
+        <li><a href="#">Alcohol-Free Beers</a></li>
+        <li><a href="#">Alcohol-Free Drinks</a></li>
+        <li><a href="#">Other Products</a></li>
+      </ul>
+    </div>
+    <div id="main">
+      <p id="notice"><%= notice %></p>
+
+      <p>Showing <%= @products.size %> results</p>
+
+      <% @products.each do |product| %>
+        <div class="entry">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><%= image_tag(product.image_url) %></td>
+                <td><h3><%= product.title %></h3>
+                <%= sanitize(product.description) %></td>
+                <td><p class="price"><%= number_to_currency product.price, unit: '£' %></p></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

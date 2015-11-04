@@ -1,0 +1,29 @@
+// Place all the styles related to the Store controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.store {
+  #columns {
+    #side {
+      float: left;
+      padding: 1em 2em;
+      width: 20em;
+      border-right: 1px solid lightgray;
+
+      ul li {
+        list-style: none;
+        padding-top: 0.5em;
+      }
+    }
+
+    #main {
+      margin-left: 23em;
+
+      .price {
+        font-size: large;
+        padding: 1em;
+        margin-top: 3em;
+      }
+    }
+  }
+}
