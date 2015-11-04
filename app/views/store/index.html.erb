@@ -22,7 +22,10 @@
                 <td><%= image_tag(product.image_url) %></td>
                 <td><h3><%= product.title %></h3>
                 <%= sanitize(product.description) %></td>
-                <td><p class="price"><%= number_to_currency product.price, unit: '£' %></p></td>
+                <td>
+                  <p class="price"><%= number_to_currency product.price, unit: '£' %></p>
+                  <%= button_to 'Add to Cart', line_items_path(product_id: product.id) %>
+                </td>
               </tr>
             </tbody>
           </table>
