@@ -1,19 +1,20 @@
 <div class="container">
-  <table>
-    <tr>
-      <h4><span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</h4>
-    </tr>
-    <%= render(cart.line_items) %>
+  <h4><span class="glyphicon glyphicon-shopping-cart"></span> Your Cart</h4>
+  <% if cart.line_items.empty? %>
+    <p> No items in cart. </p>
+  <% else %>
+    <table>
+      <%= render(cart.line_items) %>
 
-    <tr class="total_line">
-      <td colspan="2">Total: </td>
-      <td class="total_cell">
-        <%= number_to_currency cart.total_price, unit: '£' %>
-      </td>
-    </tr>
+      <tr class="total_line">
+        <td colspan="2">Total: </td>
+        <td class="total_cell">
+          <%= number_to_currency cart.total_price, unit: '£' %>
+        </td>
+      </tr>
+    </table>
 
-  </table>
-
-  <%= button_to 'Empty cart', cart, method: :delete,
-                data: { confirm: 'Are your sure?' } %>
+    <%= button_to 'Empty cart', cart, method: :delete,
+                  data: { confirm: 'Are your sure?' } %>
+  <% end %>
 </div>
