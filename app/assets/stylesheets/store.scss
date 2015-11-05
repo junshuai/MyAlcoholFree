@@ -7,8 +7,26 @@
     #side {
       float: left;
       padding: 1em 2em;
-      width: 20em;
+      width: 25em;
       border-right: 1px solid lightgray;
+
+      form, div {
+        display: inline;
+      }
+
+      input {
+        font-size: small;
+      }
+
+      #cart {
+        font-size: smaller;
+
+        table {
+          border-bottom: 1px solid lightgray;
+          margin-bottom: 10px;
+        }
+      
+      }
 
       ul li {
         list-style: none;
@@ -17,7 +35,7 @@
     }
 
     #main {
-      margin-left: 23em;
+      margin-left: 27em;
 
       .price {
         font-size: large;
