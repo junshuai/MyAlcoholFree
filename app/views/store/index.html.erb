@@ -4,13 +4,21 @@
       <div id="cart">
         <%= render @cart %>
       </div>
-      <ul>
-        <li><a href="#">All Drinks</a></li>
-        <li><a href="#">Alcohol-Free Wines</a></li>
-        <li><a href="#">Alcohol-Free Beers</a></li>
-        <li><a href="#">Alcohol-Free Drinks</a></li>
-        <li><a href="#">Other Products</a></li>
-      </ul>
+      <div id="categories">
+        <h4>CATEGORIES</h4>
+        <label>
+          <input type="checkbox" value=""> Alcohol-Free Wines
+        </label>
+        <label>
+          <input type="checkbox" value=""> Alcohol-Free Beers
+        </label>
+        <label>
+          <input type="checkbox" value=""> Alcohol-Free Drinks
+        </label>
+        <label>
+          <input type="checkbox" value=""> Other Products
+        </label>
+      </div>
     </div>
     <div id="main">
       <p id="notice"><%= notice %></p>
