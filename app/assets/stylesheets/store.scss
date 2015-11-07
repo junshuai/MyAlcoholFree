@@ -7,7 +7,8 @@
     #side {
       float: left;
       padding: 1em 2em;
-      width: 25em;
+      padding-bottom: 20em;
+      width: 18em;
       border-right: 1px solid lightgray;
 
       form, div {
@@ -25,11 +26,17 @@
       }
 
       #cart {
-        font-size: smaller;
-
+        .table th, .table td {
+          border: 0 !important;
+        }
+ 
         table {
           border-bottom: 1px solid lightgray;
           margin-bottom: 10px;
+        }
+
+        table td {
+          padding-left: 0;
         }
       
       }
@@ -41,7 +48,7 @@
     }
 
     #main {
-      margin-left: 27em;
+      margin-left: 20em;
 
       .price {
         font-size: large;

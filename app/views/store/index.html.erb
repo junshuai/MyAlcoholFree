@@ -37,7 +37,8 @@
                   <p class="price"><%= number_to_currency product.price, unit: '£' %></p>
                   <%= button_to 'Add to Cart',
                                 line_items_path(product_id: product.id),
-                                remote: true %>
+                                remote: true,
+                                class: 'btn btn-default' %>
                 </td>
               </tr>
             </tbody>

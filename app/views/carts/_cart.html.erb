@@ -3,7 +3,7 @@
   <% if cart.line_items.empty? %>
     <p> No items in cart. </p>
   <% else %>
-    <table>
+    <table class="table table-condensed">
       <%= render(cart.line_items) %>
 
       <tr class="total_line">
@@ -14,8 +14,10 @@
       </tr>
     </table>
 
-    <%= button_to 'Check out', new_order_path, method: :get %>
+    <%= button_to 'Check out', new_order_path, method: :get,
+                  class: 'btn btn-default' %>
     <%= button_to 'Empty cart', cart, method: :delete,
-                  data: { confirm: 'Are your sure?' } %>
+                  data: { confirm: 'Are your sure?' },
+                  class: 'btn btn-default pull-right' %>
   <% end %>
 </div>
