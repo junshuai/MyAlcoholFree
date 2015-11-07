@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyText
+  email: a@b.c
+  pay_type: Check
+
+two:
+  name: MyString
+  address: MyText
+  email: b@c.a
+  pay_type: Credit card
