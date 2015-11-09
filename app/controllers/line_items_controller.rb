@@ -30,7 +30,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to store_url }
+        format.html { redirect_to product_path(params[:product_id]), notice: 'Item has been put in your cart.' }
         format.js
         format.json { render :show, status: :created, location: @line_item }
       else

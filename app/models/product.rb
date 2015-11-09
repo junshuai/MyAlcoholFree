@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  has_one :detail, foreign_key: "product_id", class_name: "ProductDetail",
+          dependent: :destroy
   has_many :line_items
 
   before_destroy :ensure_not_referenced_by_any_line_item

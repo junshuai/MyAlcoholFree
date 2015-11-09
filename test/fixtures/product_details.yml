@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  image_url: MyString
+  long_description: MyText
+  manufacturer: MyString
+  country_of_origin: MyString
+  volume_in_liter: 9.99
+  alcohol_by_volume: 9.99
+  calories_in_kcal_per_100ml: 9.99
+  grape_type: MyString
+
+two:
+  product_id: 
+  image_url: MyString
+  long_description: MyText
+  manufacturer: MyString
+  country_of_origin: MyString
+  volume_in_liter: 9.99
+  alcohol_by_volume: 9.99
+  calories_in_kcal_per_100ml: 9.99
+  grape_type: MyString

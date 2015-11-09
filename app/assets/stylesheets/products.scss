@@ -36,4 +36,23 @@
     padding-top:  2em;
     padding-left: 1em;
   }
+
+  .product_photo {
+    height: 368px;
+    width: 260px;
+    float: left;
+    margin-right: 20px;
+  }
+  
+  .title {
+    margin-bottom: 30px;
+  }
+
+  .brief-description {
+    color: gray;
+  }
+
+  .price {
+    font-weight: bold;
+  }
 }

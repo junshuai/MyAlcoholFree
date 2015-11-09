@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <%= image_tag @product.detail.image_url, class: 'product_photo' %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+    <h2 class="title"><%= @product.title %></h2>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <h4 class="brief-description"><%= @product.description %></h4>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+    <h3 class="price"> <%= number_to_currency @product.price, unit: '£' %> </h3>
+    <%= button_to 'Add to Cart', line_items_path(product_id: @product.id),
+                  class: 'btn btn-primary btn-md'%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <div class="details">
+      <hr>
+      <p><%= @product.detail.long_description %></p>
+      <dl class="dl-horizontal">
+        <dt>Manufacturer</dt>
+        <dd><%= @product.detail.manufacturer %></dd>
+        <dt>Country of origin</dt>
+        <dd><%= @product.detail.country_of_origin %></dd>
+        <dt>Volume in liter</dt>
+        <dd><%= @product.detail.volume_in_liter %></dd>
+        <dt>Alcohol by volume</dt>
+        <dd><%= @product.detail.alcohol_by_volume %></dd>
+        <dt>Galories(kcal/100ml)</dt>
+        <dd><%= @product.detail.calories_in_kcal_per_100ml %></dd>
+        <dt>Grape type</dt>
+        <dd><%= @product.detail.grape_type %></dd>
+      </dl>
+    </div>
+  </div>
+</div>

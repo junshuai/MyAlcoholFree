@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Product Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Image url</th>
+      <th>Long description</th>
+      <th>Manufacturer</th>
+      <th>Country of origin</th>
+      <th>Volume in liter</th>
+      <th>Alcohol by volume</th>
+      <th>Calories in kcal per 100ml</th>
+      <th>Grape type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_details.each do |product_detail| %>
+      <tr>
+        <td><%= product_detail.product %></td>
+        <td><%= product_detail.image_url %></td>
+        <td><%= product_detail.long_description %></td>
+        <td><%= product_detail.manufacturer %></td>
+        <td><%= product_detail.country_of_origin %></td>
+        <td><%= product_detail.volume_in_liter %></td>
+        <td><%= product_detail.alcohol_by_volume %></td>
+        <td><%= product_detail.calories_in_kcal_per_100ml %></td>
+        <td><%= product_detail.grape_type %></td>
+        <td><%= link_to 'Show', product_detail %></td>
+        <td><%= link_to 'Edit', edit_product_detail_path(product_detail) %></td>
+        <td><%= link_to 'Destroy', product_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product detail', new_product_detail_path %>

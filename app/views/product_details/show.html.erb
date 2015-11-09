@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_detail.product %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @product_detail.image_url %>
+</p>
+
+<p>
+  <strong>Long description:</strong>
+  <%= @product_detail.long_description %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @product_detail.manufacturer %>
+</p>
+
+<p>
+  <strong>Country of origin:</strong>
+  <%= @product_detail.country_of_origin %>
+</p>
+
+<p>
+  <strong>Volume in liter:</strong>
+  <%= @product_detail.volume_in_liter %>
+</p>
+
+<p>
+  <strong>Alcohol by volume:</strong>
+  <%= @product_detail.alcohol_by_volume %>
+</p>
+
+<p>
+  <strong>Calories in kcal per 100ml:</strong>
+  <%= @product_detail.calories_in_kcal_per_100ml %>
+</p>
+
+<p>
+  <strong>Grape type:</strong>
+  <%= @product_detail.grape_type %>
+</p>
+
+<%= link_to 'Edit', edit_product_detail_path(@product_detail) %> |
+<%= link_to 'Back', product_details_path %>
