@@ -28,6 +28,23 @@
     <%= f.select :role, ['admin', 'customer'],
                  prompt: 'Select a role' %>
   </div>
+
+  <%= fields_for :customer, @user.customer do |customer| %>
+    <div class="field">
+      <%= customer.label :name %></br>
+      <%= customer.text_field :name %>
+    </div>
+    <div class="field">
+      <%= customer.label :address %></br>
+      <%= customer.text_field :address %>
+    </div>
+    <div class="field">
+      <%= customer.label :email %></br>
+      <%= customer.text_field :email %>
+    </div>
+  <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
