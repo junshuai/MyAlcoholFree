@@ -31,6 +31,10 @@
 .navbar .navbar-nav li {
   font-family: Lato;
   font-weight: border;
-  padding-top: 10px;
   font-size: 1.3em;
+}
+
+.user>li>a {
+  display: inline;
+  padding: 0;
 }

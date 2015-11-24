@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authorize
+  before_action :set_user
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -15,6 +16,10 @@ class ApplicationController < ActionController::Base
           raise ActiveRecord::RecordNotFound
         end
       end
+    end
+
+    def set_user
+      @user = User.find_by(id: session[:user_id])
     end
 
 end
