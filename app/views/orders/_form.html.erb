@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, size: 40 %>
+    <%= f.text_field :name, size: 40, value: @customer.name %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_area :address, rows: 3, cols: 40 %>
+    <%= f.text_area :address, rows: 3, cols: 40, value: @customer.address %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.email_field :email, size: 40 %>
+    <%= f.email_field :email, size: 40, value: @customer.email %>
   </div>
   <div class="field">
     <%= f.label :pay_type %><br>

@@ -22,6 +22,9 @@ class OrdersController < ApplicationController
     end
 
     @order = Order.new
+
+    @customer = User.find(session[:user_id]).customer
+    p @customer
   end
 
   # GET /orders/1/edit
