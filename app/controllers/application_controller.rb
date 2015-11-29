@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
     def authorize
       unless user = User.find_by(id: session[:user_id])
         redirect_to login_url, notice: "Please log in"
-      else
-        unless user.role == 'admin'
-          raise ActiveRecord::RecordNotFound
-        end
+      #else
+        #unless user.role == 'admin'
+        #  raise ActiveRecord::RecordNotFound
+        #end
       end
     end
 
