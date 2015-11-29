@@ -39,7 +39,7 @@
           <table class="table">
             <tbody>
               <tr>
-                <td><%= link_to image_tag(product.image_url), product_path(product.id) %></td>
+                <td><%= link_to image_tag(product.thumbnail_url), product_path(product.id) %></td>
                 <td><h3><%= product.title %></h3>
                 <%= sanitize(product.description) %></td>
                 <td>

@@ -15,7 +15,7 @@ namespace :supply do
         product = Product.where(title: obj['title']).first_or_create
         product.update!(
           description: obj['brief_description'],
-          image_url: obj['thumbnail_url'],
+          thumbnail_url: obj['thumbnail_url'],
           price: obj['price'][1..-1].to_f
         )
 
