@@ -32,7 +32,7 @@
     <div id="main">
       <p id="notice"><%= notice %></p>
 
-      <p>Showing <%= @products.size %> results</p>
+      <p>Showing <%= @products.total_entries %> results</p>
 
       <% @products.each do |product| %>
         <div class="entry">
