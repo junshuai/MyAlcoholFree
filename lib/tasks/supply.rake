@@ -16,10 +16,11 @@ namespace :supply do
         product.update!(
           description: obj['brief_description'],
           image_url: obj['thumbnail_url'],
-          price: obj['price'].to_f
+          price: obj['price'][1..-1].to_f
         )
 
         ProductDetail.where(product_id: product.id).first_or_create.update!(
+          image_url: obj['image_url'],
           long_description: obj['long_description'],
           manufacturer: obj['manufacturer'],
           country_of_origin: obj['country_of_origin'],
