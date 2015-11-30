@@ -40,9 +40,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
-        line_items = LineItem.where(order_id: "#{@order.id}")
-        
-        send_order_to_suppliers(@order, line_items)
+        send_order_to_suppliers(@order)
 
         format.html { redirect_to store_url, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
@@ -88,23 +86,38 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:name, :address, :email, :pay_type)
     end
 
-    def send_order_to_suppliers(order, line_items)
+    def send_order_to_suppliers(order)
       require 'net/http'
-      uri = URI('http://evening-wave-3166.herokuapp.com/orders')
+
+      suppliers = {'apple'  => 'http://boiling-lake-3463.herokuapp.com',
+                   'banana' => 'http://salty-wave-4297.herokuapp.com'}
+
+      line_items = LineItem.where(order_id: "#{@order.id}")
 
       order_json = ActiveSupport::JSON.encode(order)
 
-      # Construct json string for items
-      items_json = '['
-      line_items.each do |line_item|
-        product = Product.find(line_item.product_id)
-        items_json << "{\"title\": \"#{product.title}\","
-        items_json << " \"price\": \"#{product.price}\","
-        items_json << " \"quantity\": \"#{line_item.quantity}\"},"
-      end
-      items_json[-1] = ']'
+      suppliers.each do |supplier_name, supplier_url|
+        uri = URI(supplier_url + '/orders')
 
-      res = Net::HTTP.post_form(uri, 'order' => order_json, 'items' => items_json)
-      res.code
+        # Construct json string for items
+        items_json = '['
+        line_items.each do |line_item|
+          product = Product.find(line_item.product_id)
+          if product.supplier == supplier_name
+            items_json << "{\"title\": \"#{product.title}\","
+            items_json << " \"price\": \"#{product.price}\","
+            items_json << " \"quantity\": \"#{line_item.quantity}\"},"
+          end
+        end
+        items_json[-1] = ']'
+
+        # If not including any products for this supplier, then do not send an order
+        if items_json == ']'
+          next
+        end
+
+        res = Net::HTTP.post_form(uri, 'order' => order_json, 'items' => items_json)
+        res.code
+      end
     end
 end
