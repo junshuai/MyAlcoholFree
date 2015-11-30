@@ -4,24 +4,27 @@
       <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
       <ul>
-      <% @order.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name, size: 40, value: @customer.name %>
+    <%= f.text_field :name, size: 40,
+                     value: (@customer ? @customer.name : "") %>
   </div>
   <div class="field">
     <%= f.label :address %><br>
-    <%= f.text_area :address, rows: 3, cols: 40, value: @customer.address %>
+    <%= f.text_area :address, rows: 3, cols: 40,
+                    value: (@customer ? @customer.address : "") %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.email_field :email, size: 40, value: @customer.email %>
+    <%= f.email_field :email, size: 40,
+                      value: (@customer ? @customer.email : "") %>
   </div>
   <div class="field">
     <%= f.label :pay_type %><br>

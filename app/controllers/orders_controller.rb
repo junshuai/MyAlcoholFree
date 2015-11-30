@@ -22,9 +22,7 @@ class OrdersController < ApplicationController
     end
 
     @order = Order.new
-
     @customer = User.find(session[:user_id]).customer
-    p @customer
   end
 
   # GET /orders/1/edit
@@ -42,11 +40,14 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
-        format.html { redirect_to store_url,
-          notice: 'Thank you for your order.' }
+        line_items = LineItem.where(order_id: "#{@order.id}")
+        
+        send_order_to_suppliers(@order, line_items)
+
+        format.html { redirect_to store_url, notice: 'Thank you for your order.' }
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
+        format.html { redirect_to new_order_url, notice: 'Failed to place order!' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end
@@ -85,5 +86,25 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
       params.require(:order).permit(:name, :address, :email, :pay_type)
+    end
+
+    def send_order_to_suppliers(order, line_items)
+      require 'net/http'
+      uri = URI('http://evening-wave-3166.herokuapp.com/orders')
+
+      order_json = ActiveSupport::JSON.encode(order)
+
+      # Construct json string for items
+      items_json = '['
+      line_items.each do |line_item|
+        product = Product.find(line_item.product_id)
+        items_json << "{\"title\": \"#{product.title}\","
+        items_json << " \"price\": \"#{product.price}\","
+        items_json << " \"quantity\": \"#{line_item.quantity}\"},"
+      end
+      items_json[-1] = ']'
+
+      res = Net::HTTP.post_form(uri, 'order' => order_json, 'items' => items_json)
+      res.code
     end
 end
