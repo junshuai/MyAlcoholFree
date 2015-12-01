@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductDetailsControllerTest < ActionController::TestCase
   setup do
     @product_detail = product_details(:one)
+    @product_detail.product_id = Product.first.id
   end
 
   test "should get index" do
@@ -18,7 +19,8 @@ class ProductDetailsControllerTest < ActionController::TestCase
 
   test "should create product_detail" do
     assert_difference('ProductDetail.count') do
-      post :create, product_detail: { alcohol_by_volume: @product_detail.alcohol_by_volume, calories_in_kcal_per_100ml: @product_detail.calories_in_kcal_per_100ml, country_of_origin: @product_detail.country_of_origin, grape_type: @product_detail.grape_type, image_url: @product_detail.image_url, long_description: @product_detail.long_description, manufacturer: @product_detail.manufacturer, product_id: @product_detail.product_id, volume_in_liter: @product_detail.volume_in_liter }
+      post :create, product_detail: { product_id: @product_detail.product_id,
+                                      image_url: @product_detail.image_url }
     end
 
     assert_redirected_to product_detail_path(assigns(:product_detail))

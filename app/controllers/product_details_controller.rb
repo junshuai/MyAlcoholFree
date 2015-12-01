@@ -14,7 +14,7 @@ class ProductDetailsController < ApplicationController
 
   # GET /product_details/new
   def new
-    @product_detail = ProductDetail.new
+    @product_detail = ProductDetail.new(product_id: params[:product_id])
   end
 
   # GET /product_details/1/edit

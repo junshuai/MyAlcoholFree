@@ -12,7 +12,7 @@
       <% @products.each do |product| %>
         <tr>
           <td class="list_image">
-            <%= image_tag(product.image_url, class: 'images') %>
+            <%= image_tag(product.thumbnail_url, class: 'images') %>
           </td>
           <td class="list_description">
             <dl>

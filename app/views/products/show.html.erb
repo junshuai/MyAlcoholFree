@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-xs-offset-2 col-xs-8">
-    <%= image_tag @product.detail.image_url, class: 'product_photo' %>
+    <% if @product.detail %>
+      <%= image_tag @product.detail.image_url, class: 'product_photo' %>
+    <% end %>
 
     <h2 class="title"><%= @product.title %></h2>
 
@@ -12,6 +14,7 @@
                   class: 'btn btn-primary btn-md'%>
   </div>
 </div>
+<% if @product.detail %>
 <div class="row">
   <div class="col-xs-offset-2 col-xs-8">
     <div class="details">
@@ -34,3 +37,4 @@
     </div>
   </div>
 </div>
+<% end %>

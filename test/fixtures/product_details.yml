@@ -2,7 +2,7 @@
 
 one:
   product_id: 
-  image_url: MyString
+  image_url: img.png
   long_description: MyText
   manufacturer: MyString
   country_of_origin: MyString
@@ -13,7 +13,7 @@ one:
 
 two:
   product_id: 
-  image_url: MyString
+  image_url: img.jpg
   long_description: MyText
   manufacturer: MyString
   country_of_origin: MyString

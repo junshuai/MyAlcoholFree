@@ -6,8 +6,9 @@ class ProductsControllerTest < ActionController::TestCase
     @update = {
       title:        'Romance en Rose Organic',
       description:  'A premium quality de-alcoholised organic rosé wine from Bordeaux.',
-      image_url:    'http://www.alcoholfree.co.uk/images/romance_en_rose_site_thumb180.jpg',
-      price: 7.99
+      thumbnail_url:    'http://www.alcoholfree.co.uk/images/romance_en_rose_site_thumb180.jpg',
+      price:        7.99,
+      supplier:     'apple'
     }
   end
 
@@ -27,7 +28,8 @@ class ProductsControllerTest < ActionController::TestCase
       post :create, product: @update
     end
 
-    assert_redirected_to product_path(assigns(:product))
+    product = Product.where(title: @update[:title]).first
+    assert_redirected_to new_product_detail_path(product_id: product.id)
   end
 
   test "should show product" do
