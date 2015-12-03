@@ -2,21 +2,34 @@
   <% if flash[:alert] %>
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
-  <%= form_tag do %>
-    <fieldset>
-      <legend>Please Log In</legend>
-      <div>
-        <%= label_tag :username, 'Username:' %>
-        <%= text_field_tag :username, params[:username] %>
+  <div class="container">
+    <div class="placeholder"></div>
+    <div class="row">
+      <div class="col-xs-offset-4 col-xs-4">
+      <%= form_tag do %>
+        <fieldset>
+          <legend>Please Log In</legend>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+            </span>
+            <%= text_field_tag :username, params[:username], class: "form-control" %>
+          </div>
+          <div class="placeholder"></div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+            </span>
+            <%= password_field_tag :password, params[:password], class: "form-control" %>
+          </div>
+          <div class="placeholder"></div>
+          <div>
+            <%= submit_tag "Login", class: "btn btn-primary pull-right" %>
+            <%= link_to "Register", new_user_path %>
+          </div>
+        </fieldset>
+      <% end %>
       </div>
-      <div>
-        <%= label_tag :password, 'Password' %>
-        <%= password_field_tag :password, params[:password] %>
-      </div>
-      <div>
-        <%= submit_tag "Login" %>
-        <%= link_to "Register", new_user_path %>
-      </div>
-    </fieldset>
-  <% end %>
+    </div>
+  </div>
 </div>

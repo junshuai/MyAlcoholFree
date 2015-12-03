@@ -1,23 +1,19 @@
-<div class="container">
-  <h4>CART <span class="glyphicon glyphicon-shopping-cart"></span></h4>
-  <% if cart.line_items.empty? %>
-    <p> No items in cart. </p>
-  <% else %>
-    <table class="table table-condensed">
-      <%= render(cart.line_items) %>
+<h4>CART <span class="glyphicon glyphicon-shopping-cart"></span></h4>
+<% if cart.line_items.empty? %>
+  <p> No items in cart. </p>
+<% else %>
+  <table class="table table-condensed">
+    <%= render(cart.line_items) %>
 
-      <tr class="total_line">
-        <td colspan="2">Total: </td>
-        <td class="total_cell">
-          <%= number_to_currency cart.total_price, unit: '£' %>
-        </td>
-      </tr>
-    </table>
+    <tr class="total_line">
+      <td colspan="2">Total: </td>
+      <td class="total_cell">
+        <%= number_to_currency cart.total_price, unit: '£' %>
+      </td>
+    </tr>
+  </table>
 
-    <%= button_to 'Check out', cart, method: :get,
-                  class: 'btn btn-default' %>
-    <%= button_to 'Empty cart', cart, method: :delete,
-                  data: { confirm: 'Are your sure?' },
-                  class: 'btn btn-default pull-right' %>
-  <% end %>
-</div>
+  <%= button_to 'Check out', cart, method: :get, class: 'btn btn-primary' %>
+  <%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'Are your sure?' },
+                class: 'btn btn-default pull-right' %>
+<% end %>

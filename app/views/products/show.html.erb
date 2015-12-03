@@ -20,20 +20,22 @@
     <div class="details">
       <hr>
       <p><%= @product.detail.long_description %></p>
-      <dl class="dl-horizontal">
-        <dt>Manufacturer</dt>
-        <dd><%= @product.detail.manufacturer %></dd>
-        <dt>Country of origin</dt>
-        <dd><%= @product.detail.country_of_origin %></dd>
-        <dt>Volume in liter</dt>
-        <dd><%= @product.detail.volume_in_liter %></dd>
-        <dt>Alcohol by volume</dt>
-        <dd><%= @product.detail.alcohol_by_volume %></dd>
-        <dt>Galories(kcal/100ml)</dt>
-        <dd><%= @product.detail.calories_in_kcal_per_100ml %></dd>
-        <dt>Grape type</dt>
-        <dd><%= @product.detail.grape_type %></dd>
-      </dl>
+      <div class="col-xs-offset-3 col-xs-6">
+        <dl class="dl-horizontal details_list">
+          <dt>Manufacturer</dt>
+          <dd><%= @product.detail.manufacturer %></dd>
+          <dt>Country of origin</dt>
+          <dd><%= @product.detail.country_of_origin %></dd>
+          <dt>Volume in liter</dt>
+          <dd><%= @product.detail.volume_in_liter %></dd>
+          <dt>Alcohol by volume</dt>
+          <dd><%= @product.detail.alcohol_by_volume %></dd>
+          <dt>Galories(kcal/100ml)</dt>
+          <dd><%= @product.detail.calories_in_kcal_per_100ml %></dd>
+          <dt>Grape type</dt>
+          <dd><%= @product.detail.grape_type %></dd>
+        </dl>
+      </div>
     </div>
   </div>
 </div>

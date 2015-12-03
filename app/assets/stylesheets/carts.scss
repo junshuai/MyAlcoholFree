@@ -2,22 +2,38 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.carts, #side #cart {
-  font-size: 12px;
-  .item_price, .total_line {
-    text-align: right;
+.carts {
+
+  #side #cart {
+    font-size: 12px;
+    .item_price, .total_line {
+      text-align: right;
+    }
+
+    .total_line .total_cell {
+      font-weight: bold;
+      border-top: 1px solid lightgray;
+    }
   }
 
-  .total_line .total_cell {
-    font-weight: bold;
-    border-top: 1px solid lightgray;
+  .table {
+    font-size: 16px;
+    thead {
+      font-weight: bold;
+    }
+
+    tbody {
+      font-size: 12px;
+    }
+
+    .total_line {
+      font-weight: bold;
+    }
+  }
+
+  form {
+    display: inline;
   }
 }
 
-.carts .table {
-  font-size: 16px;
-}
 
-.carts form {
-  display: inline;
-}

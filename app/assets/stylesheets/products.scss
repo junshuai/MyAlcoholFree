@@ -20,6 +20,14 @@
     }
   }
 
+  .details {
+    height: 400px;
+ 
+    .details_list {
+      font-size: 1.1em;
+    }
+  }
+
   .list_description {
     dt {
       color:        #244;
@@ -39,9 +47,9 @@
 
   .product_photo {
     height: 368px;
-    width: 260px;
     float: left;
-    margin-right: 20px;
+    margin-left: 120px;
+    margin-right: 120px;
   }
   
   .title {

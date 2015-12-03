@@ -1,20 +1,18 @@
-<div class="container">
-  <p id="notice"><%= notice %></p>
-  <div class="row">
-    <div class="col-xs-offset-2 col-xs-8">
-      <div class="progress">
-        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
-          Check
-        </div>
-        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
-          Order
-        </div>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-xs-offset-2 col-xs-8">
+    <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+        Check
       </div>
-
-      <fieldset>
-        <legend>Please Enter Your Details</legend>
-        <%= render 'form' %>
-      </fieldset>
+      <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%">
+        Order
+      </div>
     </div>
+
+    <fieldset>
+      <legend>Please Enter Your Details</legend>
+      <%= render 'form' %>
+    </fieldset>
   </div>
 </div>

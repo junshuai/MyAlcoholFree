@@ -19,44 +19,34 @@
           <input type="checkbox" value=""> Other Products
         </label>
       </div>
-      <div id="admin-session">`
-        <% if session[:user_id] %>
-          <ul>
-            <li><%= link_to 'Orders',   orders_path %></li>
-            <li><%= link_to 'Products', products_path %></li>
-            <li><%= link_to 'Users',    users_path %></li>
-          </ul>
-        <% end %>
-      </div>
     </div>
     <div id="main">
-      <p id="notice"><%= notice %></p>
-
-      <p>Showing <%= @products.total_entries %> results</p>
-
-      <% @products.each do |product| %>
-        <div class="entry">
-          <table class="table">
-            <tbody>
-              <tr>
-                <td><%= link_to image_tag(product.thumbnail_url), product_path(product.id) %></td>
-                <td><h3><%= product.title %></h3>
-                <%= sanitize(product.description) %></td>
-                <td>
-                  <p class="price"><%= number_to_currency product.price, unit: '£' %></p>
-                  <%= button_to 'Add to Cart',
-                                line_items_path(product_id: product.id),
-                                remote: true,
-                                class: 'btn btn-default' %>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <% if notice %>
+      <div id="notice" class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= notice %>
+      </div>
       <% end %>
-
-      <%= will_paginate @products %>
-
+      <p>Showing <%= @products.total_entries %> results</p>
+      <div class="row">
+        <% @products.each do |product| %>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="thumbnail">
+            <%= link_to image_tag(product.thumbnail_url), product_path(product.id) %>
+            <div class="caption">
+              <h4><%= truncate product.title, length: 40 %></h4>
+              <p class="text-muted"><%= truncate sanitize(product.description), length: 90 %></p>
+              <p>
+                <span class="price pull-right"><%= number_to_currency product.price, unit: '£' %></span>
+                <%= button_to 'Add to Cart', line_items_path(product_id: product.id),
+                              remote: true, class: 'btn btn-primary' %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <%= will_paginate @products %>
+      </div>
     </div>
   </div>
 </div>
