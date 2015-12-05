@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div id="notice" class="alert alert-info alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+<% end %>
+
 <div class="row">
   <div class="col-xs-offset-2 col-xs-8">
     <% if @product.detail %>
@@ -6,9 +12,7 @@
     <% end %>
 
     <h2 class="title"><%= @product.title %></h2>
-
     <h4 class="brief-description"><%= @product.description %></h4>
-
     <h3 class="price"> <%= number_to_currency @product.price, unit: '£' %> </h3>
 
     <%= form_tag line_items_path do %>

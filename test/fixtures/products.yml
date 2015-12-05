@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: Pearl Blanc Organic Sparkling White Wine
+  title: one
   description: A premium-quality de-alcoholised organic dry sparkling white wine.
   thumbnail_url: http://www.alcoholfree.co.uk/images/pearl_blanc_2012_thumb180.jpg
   price: 8.99
   supplier: apple
 
 two:
-  title: Pearl Rose Organic Sparkling Wine
+  title: two
   description: A delightful organic de-alcoholised sparkling rosé wine originating from the Bordeaux region.
   thumbnail_url: http://www.alcoholfree.co.uk/images/pearl_rose_2012_thumb180.jpg
   price: 8.99
