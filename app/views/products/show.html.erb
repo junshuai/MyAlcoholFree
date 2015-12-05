@@ -10,8 +10,13 @@
     <h4 class="brief-description"><%= @product.description %></h4>
 
     <h3 class="price"> <%= number_to_currency @product.price, unit: '£' %> </h3>
-    <%= button_to 'Add to Cart', line_items_path(product_id: @product.id),
-                  class: 'btn btn-primary btn-md'%>
+
+    <%= form_tag line_items_path do %>
+      <%= hidden_field_tag 'product_id', @product.id %>
+      <%= label_tag 'quantity' %>
+      <%= text_field_tag 'quantity', 1 %>
+      <%= submit_tag 'Add to Cart', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
 <% if @product.detail %>

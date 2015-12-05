@@ -15,12 +15,18 @@
         <td class="text-left">Title</td>
         <td class="text-center">Quantity</td>
         <td class="text-right">Price</td>
+        <td> </td>
       </thead>
       <% @cart.line_items.each do |line_item| %>
         <tr>
           <td class="text-left"><%= line_item.product.title %></td>
           <td class="text-center"><%= line_item.quantity %></td>
           <td class="text-right"><%= number_to_currency line_item.total_price, unit: '£' %></td>
+          <td>
+            <%= link_to line_item_path(line_item), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="glyphicon glyphicon-trash"></i>
+            <% end %>
+          </td> 
         </tr>
       <% end %>
       <tr class="total_line">
@@ -28,6 +34,7 @@
         <td class="total_cell text-right">
           <%= number_to_currency @cart.total_price, unit: '£' %>
         </td>
+        <td> </td>
       </tr>
     </table>
 

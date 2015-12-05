@@ -5,33 +5,12 @@ class LineItemsControllerTest < ActionController::TestCase
     @line_item = line_items(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:line_items)
-  end
-
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create line_item" do
     assert_difference('LineItem.count') do
       post :create, product_id: products(:one).id
     end
 
     assert_redirected_to product_path(products(:one).id)
-  end
-
-  test "should show line_item" do
-    get :show, id: @line_item
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @line_item
-    assert_response :success
   end
 
   test "should update line_item" do

@@ -38,7 +38,7 @@
               <p class="description text-muted"><%= truncate sanitize(product.description), length: 90 %></p>
               <p>
                 <span class="price pull-right"><%= number_to_currency product.price, unit: '£' %></span>
-                <%= button_to 'Add to Cart', line_items_path(product_id: product.id),
+                <%= button_to 'Add to Cart', line_items_path(product_id: product.id, quantity: 1),
                               remote: true, class: 'btn btn-primary' %>
               </p>
             </div>
