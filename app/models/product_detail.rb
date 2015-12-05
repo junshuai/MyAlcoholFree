@@ -11,6 +11,6 @@ class ProductDetail < ActiveRecord::Base
   private
 
   def validate_product_id_exists
-    errors.add(:product_id, 'produce_id does not exist') unless Product.exists?(self.product_id)
+    errors.add(:product_id, 'product_id does not exist') unless Product.exists?(self.product_id)
   end
 end

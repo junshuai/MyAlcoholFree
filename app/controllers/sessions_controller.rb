@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to session.delete(:return_to)
+      if session[:return_to]
+        redirect_to session.delete(:return_to)
+      else
+        redirect_to store_url
+      end
     else
       redirect_to login_url, alert: "Invalid user/password combination"
     end

@@ -31,11 +31,11 @@
       <div class="row">
         <% @products.each do |product| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
-          <div class="thumbnail">
+          <div class="thumbnail product">
             <%= link_to image_tag(product.thumbnail_url), product_path(product.id) %>
             <div class="caption">
-              <h4><%= truncate product.title, length: 40 %></h4>
-              <p class="text-muted"><%= truncate sanitize(product.description), length: 90 %></p>
+              <h4 class="title"><%= truncate product.title, length: 40 %></h4>
+              <p class="description text-muted"><%= truncate sanitize(product.description), length: 90 %></p>
               <p>
                 <span class="price pull-right"><%= number_to_currency product.price, unit: '£' %></span>
                 <%= button_to 'Add to Cart', line_items_path(product_id: product.id),
