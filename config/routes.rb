@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   get 'store/index'
 
-  resources :products do
+  resources :products, only: [:show] do
     get :who_bought, on: :member
   end
-  resources :product_details, only: [:new, :create, :update]
 
   resources :line_items, only: [:show, :create, :update, :destroy]
   resources :carts, only: [:show, :destroy]

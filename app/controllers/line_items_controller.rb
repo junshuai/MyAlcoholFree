@@ -6,7 +6,8 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = @cart.add_product_with_id(params[:product_id], params[:quantity].to_i || 1)
+    quantity = params[:quantity].to_i
+    @line_item = @cart.add_product_with_id(params[:product_id], quantity <= 0 ? 1 : quantity)
 
     respond_to do |format|
       if @line_item.save

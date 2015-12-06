@@ -5,11 +5,13 @@ class CustomersControllerTest < ActionController::TestCase
     @customer = customers(:one)
   end
 
+=begin
   test "should get index" do
     get :index
     assert_response :success
     assert_not_nil assigns(:customers)
   end
+=end
 
   test "should get new" do
     get :new
@@ -22,14 +24,10 @@ class CustomersControllerTest < ActionController::TestCase
       post :create, customer: { address: @customer.address, email: @customer.email, name: @customer.name }
     end
 
-    assert_redirected_to customer_path(assigns(:customer))
+    assert_redirected_to store_url
   end
 
-  test "should show customer" do
-    get :show, id: @customer
-    assert_response :success
-  end
-
+=begin
   test "should get edit" do
     get :edit, id: @customer
     assert_response :success
@@ -47,4 +45,5 @@ class CustomersControllerTest < ActionController::TestCase
 
     assert_redirected_to customers_path
   end
+=end
 end

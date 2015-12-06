@@ -9,7 +9,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "should login" do
     evad = users(:one)
     post :create, username: evad.username, password: 'secret'
-    assert_redirected_to admin_url
+    assert_redirected_to store_url
     assert_equal evad.id, session[:user_id]
   end
 
