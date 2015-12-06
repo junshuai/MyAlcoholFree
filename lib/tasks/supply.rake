@@ -6,6 +6,7 @@ namespace :supply do
     suppliers = {'apple'  => 'http://boiling-lake-3463.herokuapp.com',
                  'banana' => 'http://salty-wave-4297.herokuapp.com'}
 
+    first = true
     suppliers.each do |supplier_name, supplier_url|
       url = URI.parse(supplier_url + '/wines')
       req = Net::HTTP::Get.new(url.to_s)
@@ -18,7 +19,7 @@ namespace :supply do
         objs.each do |obj|
           product = Product.where(title: obj['title']).first_or_create
           price = obj['price'][1..-1].to_f
-          if !product.price || price < product.price
+          if first || !product.price || price < product.price
             product.update!(
               description: obj['brief_description'],
               thumbnail_url: obj['thumbnail_url'],
@@ -41,6 +42,7 @@ namespace :supply do
       rescue ActiveSupport::JSON.parse_error
         Rails.logger.warn("Attempted to decode invalid JSON: #{json_string}")
       end
+      first = false
     end
   end
 end
