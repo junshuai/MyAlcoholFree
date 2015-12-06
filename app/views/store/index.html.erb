@@ -1,6 +1,6 @@
 <div class="container-fluid">
-  <div id="columns">
-    <div id="side">
+  <div id="columns" class="row">
+    <div id="side" class="hidden-xs hidden-sm col-md-3">
       <div id="cart">
         <%= render @cart %>
       </div>
@@ -20,7 +20,7 @@
         </label>
       </div>
     </div>
-    <div id="main">
+    <div id="main" class="col-md-9">
       <% if notice %>
       <div id="notice" class="alert alert-info alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -30,12 +30,12 @@
       <p>Showing <%= @products.total_entries %> results</p>
       <div class="row">
         <% @products.each do |product| %>
-        <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="col-xs-12 col-sm-6 col-lg-4">
           <div class="thumbnail product">
             <%= link_to image_tag(product.thumbnail_url), product_path(product.id) %>
             <div class="caption">
-              <h4 class="title"><%= truncate product.title, length: 40 %></h4>
-              <p class="description text-muted"><%= truncate sanitize(product.description), length: 90 %></p>
+              <h4 class="title"><%= truncate product.title, length: 30 %></h4>
+              <p class="description text-muted"><%= truncate sanitize(product.description), length: 63 %></p>
               <p>
                 <span class="price pull-right"><%= number_to_currency product.price, unit: '£' %></span>
                 <%= button_to 'Add to Cart', line_items_path(product_id: product.id, quantity: 1),

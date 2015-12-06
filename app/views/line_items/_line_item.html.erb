@@ -1,7 +1,7 @@
 <tr class="line_item">
   <td><%= line_item.quantity %>&times;</td>
   <td class="item_title text-nowrap"><%= truncate line_item.product.title, length: 20 %></td>
-  <td class="item_price">
+  <td class="item_price text-right">
     <%= number_to_currency line_item.total_price, unit: '£' %>
   </td>
 </tr>

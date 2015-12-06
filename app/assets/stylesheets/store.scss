@@ -5,10 +5,7 @@
 .store {
   #columns {
     #side {
-      height: 1040px;
-      float: left;
       padding: 1em 1em;
-      width: 16em;
 
       form, div {
         display: inline;
@@ -50,8 +47,6 @@
     }
 
     #main {
-      margin-left: 18em;
-
       .table > tbody > tr:first-child > td {
           border-top: none;
       }
@@ -66,7 +61,7 @@
       }
 
       .thumbnail {
-        max-width: 270px;
+        max-width: 300px;
       }
     }
   }

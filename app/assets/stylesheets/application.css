@@ -39,3 +39,18 @@
   display: inline;
   padding: 0;
 }
+
+.center-block {
+  max-width: 400px;
+  float: none;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.actions {
+  margin-top: 1em;
+}
