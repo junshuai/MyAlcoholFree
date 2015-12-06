@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resources :customers, only: [:new, :create]
-  resources :orders
+  resources :orders, except: [:edit, :update]
 
   get 'admin' => 'admin#index'
   controller :sessions do
