@@ -7,7 +7,7 @@ class CartsController < ApplicationController
   # GET /carts/1.json
   def show
     if params[:cart] and params[:cart] != session[:cart_id]
-      redirect_to store_url, notice: "Invalid cart"
+      redirect_to store_url, notice: 'Invalid cart'
     end
   end
 
